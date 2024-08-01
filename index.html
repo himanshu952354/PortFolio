@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>particle.js</title>
+
+    <!-- Import style.css from root directory -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        #fullscreen-prompt {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+        }
+
+        #fullscreen-btn {
+            background: none;
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            font-size: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #fullscreen-btn:hover {
+            border-color: #f7f9f7;
+            color: #ffffff;
+            box-shadow: 0 0 20px #fafafa, 0 0 40px #ffffff, 0 0 60px #f6f6f6;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            margin: 100px auto;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .profile-pic img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .name {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .bio {
+            margin-top: 10px;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.3);
+        }
+
+        .social-icons a:hover .fab.fa-github {
+            color: #333;
+        }
+
+        .social-icons a:hover .fab.fa-linkedin {
+            color: #0e76a8;
+        }
+
+        .social-icons a:hover .fab.fa-instagram {
+            color: #e4405f;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fullscreen prompt -->
+    <div id="fullscreen-prompt">
+        <button id="fullscreen-btn">Click Here</button>
+    </div>
+
+    <!-- Particles.js div -->
+    <div id="particles-js"></div>
+
+    <!-- Audio element for background music -->
+    <audio id="background-music" src="blake tree voilet.mp3" loop></audio> 
+
+    <!-- Particles.js scripts -->
+    <script type="text/javascript" src="particles.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <!-- Fullscreen script -->
+    <script>
+        document.getElementById("fullscreen-btn").addEventListener("click", function () {
+            function requestFullScreen(element) {
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) { // Firefox
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) { // IE/Edge
+                    element.msRequestFullscreen();
+                }
+            }
+
+            requestFullScreen(document.documentElement);
+            document.getElementById("fullscreen-prompt").style.display = "none";
+            document.getElementById("background-music").play();
+
+            // Lock scroll
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Event listener for exiting fullscreen
+        document.addEventListener('fullscreenchange', function () {
+            if (!document.fullscreenElement) {
+                // Restore scroll when exiting fullscreen
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Fallback for other browsers
+        document.addEventListener('mozfullscreenchange', function () {
+            if (!document.mozFullScreen) {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('webkitfullscreenchange', function () {
+            if (!document.webkitIsFullScreen) {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('msfullscreenchange', function () {
+            if (!document.msFullscreenElement) {
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+    <!-- Profile card -->
+    <div class="card">
+        <i class="fas fa-arrow-left back-arrow"></i> <!-- Back Arrow -->
+        <i class="fas fa-ellipsis-v three-dots"></i> <!-- Three Dots -->
+        <div class="profile-pic"><img src="mikey.jpg" alt="Profile Picture"></div>
+        <div class="name">DJ</div>
+        <div class="bio">"Transforming ideas into reality with code, a software developer bridges the gap between imagination and execution."</div>
+        <div class="social-icons">
+            <a href="https://github.com/himanshu952354" target="_blank"><i class="fab fa-github"></i></a> <!-- GitHub Icon -->
+            <a href="https://www.linkedin.com/in/himanshu-shekhar9523" target="_blank"><i class="fab fa-linkedin"></i></a> <!-- LinkedIn Icon -->
+            <a href="https://www.instagram.com/not_yr_dj/" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Instagram Icon -->
+        </div>
+    </div>
+</body>
+
+</html>
