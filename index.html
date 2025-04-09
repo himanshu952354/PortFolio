@@ -109,20 +109,37 @@
         .social-icons a:hover .fab.fa-instagram {
             color: #e4405f;
         }
+
+        @keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.profile-pic img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 5s linear infinite; /* 5s = speed, adjust as you like */
+}
+        
     </style>
 </head>
 
 <body>
     <!-- Fullscreen prompt -->
     <div id="fullscreen-prompt">
-        <button id="fullscreen-btn">Don't Click Here</button>
+        <button id="fullscreen-btn">Click Here</button>
     </div>
 
     <!-- Particles.js div -->
     <div id="particles-js"></div>
 
     <!-- Audio element for background music -->
-    <audio id="background-music" src="blake tree voilet.mp3" loop></audio> 
+    <audio id="background-music" src="Gravity Falls x Quem Manda E Nos Comedia  - DJ Koala6 x DJ MRLK71 - (Tik Tok Vesion) - Kedt🎧.mp3" loop></audio> 
 
     <!-- Particles.js scripts -->
     <script type="text/javascript" src="particles.js"></script>
@@ -180,18 +197,47 @@
     </script>
 
     <!-- Profile card -->
-    <div class="card">
-        <i class="fas fa-arrow-left back-arrow"></i> <!-- Back Arrow -->
-        <i class="fas fa-ellipsis-v three-dots"></i> <!-- Three Dots -->
+    <div class="card h-50">
         <div class="profile-pic"><img src="mikey.jpg" alt="Profile Picture"></div>
         <div class="name">DJ</div>
-        <div class="bio">"Transforming ideas into reality with code, a software developer bridges the gap between imagination and execution."</div>
+        <div class="bio">"Code is poetry, and every website is a canvas."</div>
         <div class="social-icons">
             <a href="https://github.com/himanshu952354" target="_blank"><i class="fab fa-github"></i></a> <!-- GitHub Icon -->
             <a href="https://www.linkedin.com/in/himanshu-shekhar9523" target="_blank"><i class="fab fa-linkedin"></i></a> <!-- LinkedIn Icon -->
             <a href="https://www.instagram.com/not_yr_dj/" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Instagram Icon -->
         </div>
     </div>
+    <script>
+        const card = document.querySelector('.card');
+    
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;  // x position within the card
+            const y = e.clientY - rect.top;   // y position within the card
+    
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+    
+            const rotateX = ((y - centerY) / centerY) * 30; // tilt up/down
+            const rotateY = ((x - centerX) / centerX) * 30; // tilt left/right
+    
+            card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+    
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        });
+    
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.2s ease';
+            setTimeout(() => {
+                card.style.transition = '';
+            }, 200);
+        });
+    </script>
+    
+
+    
 </body>
 
 </html>
