@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>particle.js</title>
+
+    <!-- Import style.css from root directory -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            cursor: url('customcursor.png'), auto;
+        }
+
+
+        @keyframes autoZoom {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+.auto-zoom {
+  animation: autoZoom 2s ease-in-out infinite;
+}
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        #fullscreen-prompt {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+        }
+
+        #fullscreen-btn {
+            background: none;
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            font-size: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #fullscreen-btn:hover {
+            border-color: #f7f9f7;
+            color: #ffffff;
+            box-shadow: 0 0 20px #fafafa, 0 0 40px #ffffff, 0 0 60px #f6f6f6;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 400px;
+            height: 500px;
+            margin: 100px auto;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .profile-pic img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .name {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .bio {
+            margin-top: 10px;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(2);
+        }
+
+        .social-icons a:hover .fab.fa-github {
+            color: #1c1a1a;
+        }
+
+        .social-icons a:hover .fab.fa-linkedin {
+            color: #0e76a8;
+        }
+
+        .social-icons a:hover .fab.fa-instagram {
+            color: #e4405f;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-pic img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            animation: spin 3s linear infinite;
+            /* 5s = speed, adjust as you like */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fullscreen prompt -->
+    <div id="fullscreen-prompt">
+        <button id="fullscreen-btn">Click Here</button>
+    </div>
+
+    <!-- Particles.js div -->
+    <div id="particles-js"></div>
+
+    <!-- Audio element for background music -->
+    <audio id="background-music" src="QuemManda.mp3" loop></audio>
+
+    <!-- Particles.js scripts -->
+    <script type="text/javascript" src="particles.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <!-- Fullscreen script -->
+    <script>
+        document.getElementById("fullscreen-btn").addEventListener("click", function () {
+            function requestFullScreen(element) {
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) { // Firefox
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) { // IE/Edge
+                    element.msRequestFullscreen();
+                }
+            }
+
+            requestFullScreen(document.documentElement);
+            document.getElementById("fullscreen-prompt").style.display = "none";
+            document.getElementById("background-music").play();
+
+            // Lock scroll
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Event listener for exiting fullscreen
+        document.addEventListener('fullscreenchange', function () {
+            if (!document.fullscreenElement) {
+                // Restore scroll when exiting fullscreen
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Fallback for other browsers
+        document.addEventListener('mozfullscreenchange', function () {
+            if (!document.mozFullScreen) {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('webkitfullscreenchange', function () {
+            if (!document.webkitIsFullScreen) {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('msfullscreenchange', function () {
+            if (!document.msFullscreenElement) {
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+
+
+    <!-- Profile card -->
+    <div id="card-glow-wrapper" class="relative flex justify-center items-center">
+        <!-- Glowing background -->
+        <div id="card-glow-bg"
+            class="absolute w-[500px] h-[500px] blur-3xl rounded-full z-0 transition-all duration-700"></div>
+
+        <!-- Profile card -->
+        <div id="profile-card" class="card bg-white transition-colors duration-700 ease-in-out">
+
+            <div class="absolute top-4 left-4 text-green-600 text-3xl transition-transform duration-300 ease-in-out transform hover:scale-150">
+                <i class="fab fa-spotify"></i>
+            </div>
+
+            <div class="profile-pic transition-transform duration-300 ease-in-out transform auto-zoom">
+
+                <img id="profile-image" src="mikey.jpg" alt="Profile Picture" />
+            </div>
+
+            <div id="trackName" class="text-lg font-semibold mb-2 text-gray-800 mt-5 "></div>
+
+            <!-- Music Progress Bar with Time -->
+            <div class="w-full px-6 transition-transform duration-300 ease-in-out transform hover:scale-110">
+                <input type="range" id="progressBar" value="0" min="0" max="100"
+                    class="w-full h-2 bg-gray-300 rounded-lg cursor-pointer accent-green-600" />
+                <div class="flex justify-between text-sm mt-1 text-gray-700">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalDuration">0:00</span>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-center space-x-10 mt-4 text-3xl transition-transform duration-300 ease-in-out transform hover:scale-150">
+                <button onclick="prevProfile()"
+                    class="transition transform hover:scale-125 active:scale-90 duration-200">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button onclick="togglePlay()"
+                    class="transition transform hover:scale-125 active:scale-90 duration-200">
+                    <i id="playPauseIcon" class="fas fa-play"></i>
+                </button>
+                <button onclick="nextProfile()"
+                    class="transition transform hover:scale-125 active:scale-90 duration-200">
+                    <i class="fas fa-forward"></i>
+                </button>
+            </div>
+
+            <div class="name">∂ʝ</div>
+            <div class="bio">"Code is poetry, and every website is a canvas."</div>
+            <div class="social-icons transition-transform duration-300 ease-in-out transform hover:scale-150">
+                <a href="https://github.com/himanshu952354" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/himanshu-shekhar9523" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/not_yr_dj/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const card = document.querySelector('.card');
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * 50; // reverse Y-axis for natural backward tilt
+            const rotateY = ((x - centerX) / centerX) * -50;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 0.1s ease';
+        });
+    </script>
+
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="toggleTheme">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <script>
+        const profileImages = ["2nd.jpeg","pf4.jpeg","mikey.jpg","pf3.jpeg","pf4.jpg"];
+        const trackSources = ["lightItUp.mp3","violet.mp3","QuemManda.mp3","solo.mp3","iloveyou.mp3"];
+        const profileImg = document.getElementById("profile-image");
+        const audio = document.getElementById("background-music");
+        const playPauseIcon = document.getElementById("playPauseIcon");
+        const progressBar = document.getElementById("progressBar");
+        const currentTimeEl = document.getElementById("currentTime");
+        const totalDurationEl = document.getElementById("totalDuration");
+        const trackNameEl = document.getElementById("trackName");
+        const trackTitles = ["Citizen - Light It Up ","Blake tree - Violet","Gravity Falls X Quem Manda","Clean Bandit - Solo","Juice WRLD - I Love You (Unreleased)" ]; // Add more titles as needed
+
+
+        let currentIndex = 0;
+        let isPlaying = false;
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+        }
+
+        function loadProfile(index) {
+            profileImg.src = profileImages[index];
+            trackNameEl.textContent = trackTitles[index];
+
+            audio.src = trackSources[index];
+
+            // Apply glow background
+            const glow = document.getElementById("card-glow-bg");
+            glow.className = "absolute w-[500px] h-[500px] blur-3xl rounded-full z-0 transition-all duration-700";
+            glow.classList.add(glowColors[index]);
+
+            audio.addEventListener("loadedmetadata", () => {
+                totalDurationEl.textContent = formatTime(audio.duration);
+                progressBar.value = 0;
+            });
+
+            if (isPlaying) {
+                audio.play();
+            }
+        }
+
+
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+                playPauseIcon.classList.replace("fa-pause", "fa-play");
+            } else {
+                audio.play();
+                playPauseIcon.classList.replace("fa-play", "fa-pause");
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function nextProfile() {
+            currentIndex = (currentIndex + 1) % profileImages.length;
+            loadProfile(currentIndex);
+        }
+
+        function prevProfile() {
+            currentIndex = (currentIndex - 1 + profileImages.length) % profileImages.length;
+            loadProfile(currentIndex);
+        }
+
+        // Update progress bar as song plays
+        audio.addEventListener("timeupdate", () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.value = progress || 0;
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+        });
+
+        // Seek on progress bar change
+        progressBar.addEventListener("input", () => {
+            const seekTime = (progressBar.value / 100) * audio.duration;
+            audio.currentTime = seekTime;
+        });
+
+        window.onload = () => {
+            loadProfile(currentIndex);
+            playPauseIcon.classList.remove("fa-play");
+            playPauseIcon.classList.add("fa-pause");
+            isPlaying = true;
+        };
+
+        const glowColors = [
+            "bg-yellow-900",
+            "bg-red-900",
+            "bg-black-900",
+            "bg-red-900",
+            "bg-blue-900"
+        ];
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+
+</html>
