@@ -15,6 +15,10 @@
 
 
   <style>
+    html {
+  scroll-behavior: smooth;
+}
+
     .pushable {
       position: relative;
       display: inline-block;
@@ -64,8 +68,9 @@
   </style>
 </head>
 
-<body class="bg-gray-100 ">
-  <header class="flex justify-between items-center px-20 shadow-lg py-6">
+<body class="bg-gray-100">
+  <!--Header-->
+  <header class="flex justify-between items-center px-20 shadow-lg py-6 sticky backdrop-blur-lg top-0 bg-white/10 z-10">
     <h1 class="text-2xl font-bold font-mono">Full Stack Web Developer</h1>
     <nav class="flex space-x-6">
       <button class="pushable">
@@ -87,7 +92,7 @@
 
 
 
-
+  <!--Hero section-->
   <div class="flex mt-5 justify-between px-20">
     <div>
       <h1 class=" text-5xl font-bold py-10" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
@@ -110,62 +115,137 @@
         data-aos-easing="ease-in-out">Read my <span class="underline"><a href="#">Terms and Conditions</a></span></p>
     </div>
     <img src="2nd.jpeg" data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000"
-      data-aos-easing="ease-in-out" class="w-[550px] h-[550px] rounded-lg shadow-lg">
+      data-aos-easing="ease-in-out" class="w-[550px] h-[550px] rounded-lg shadow-2xl">
   </div>
 
 
 
 
 
-
-  <div class="px-30">
-    <h1 class="font-bold text-xl text-center mt-10 font-sans text-gray-800" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">My skills</h1>
-    <h2 class="font-bold text-5xl text-center mt-3 text-gray-800" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="500" data-aos-easing="ease-in-out">What I do</h2>
-    <p class="text-center text-gray-500 text-xl mt-10" data-aos="fade-up" data-aos-delay="2000" data-aos-easing="ease-in-out">I'm not just a developer; I'm a digital dreamweaver. Crafting
+  <!-- My skills -->
+  <div class="px-32">
+    <h1 class="font-bold text-xl text-center mt-10 font-sans text-gray-800" data-aos="fade-up" data-aos-duration="1000"
+      data-aos-easing="ease-in-out">My skills</h1>
+    <h2 class="font-bold text-5xl text-center mt-3 text-gray-800" data-aos="fade-up" data-aos-delay="1000"
+      data-aos-duration="500" data-aos-easing="ease-in-out">What I do</h2>
+    <p class="text-center text-gray-500 text-xl mt-10" data-aos="fade-up" data-aos-delay="2000"
+      data-aos-easing="ease-in-out">I'm not just a developer; I'm a digital dreamweaver. Crafting
       immersive online experiences is not just a job but my calling.<br> Discover below how I can help you.</p>
   </div>
 
-  <div class="flex justify-center px-20 mt-32 space-x-32">
+  <div class="flex justify-center px-32 mt-32 space-x-32">
     <div class="text-center">
-      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
+      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full" data-aos="fade-up"
+        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
         dashboard
       </span>
-      <h1 class="font-bold text-xl mt-8 text-gray-800" data-aos="fade-up-right" data-aos-delay="2000" data-aos-duration="1000" data-aos-easing="ease-in-out">Frontend Web Development:</h1>
-      <p class="text-gray-500 mt-3" data-aos="fade-up-right" data-aos-delay="3000" data-aos-easing="ease-in-out" data-aos-duration="1000">Creating beautiful and functional web<br> experiences is my forte. Using the latest<br> technologies and best
+      <h1 class="font-bold text-xl mt-8 text-gray-800" data-aos="fade-up-right" data-aos-delay="2000"
+        data-aos-duration="1000" data-aos-easing="ease-in-out">Frontend Web Development:</h1>
+      <p class="text-gray-500 mt-3" data-aos="fade-up-right" data-aos-delay="3000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">Creating beautiful and functional web<br> experiences is my forte. Using the latest<br>
+        technologies and best
         practices, I design and<br> build websites that captivate and engage<br> users.</p>
     </div>
 
     <div class="text-center">
-      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
+      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full" data-aos="fade-up"
+        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
         fingerprint
       </span>
-      <h1 class="font-bold text-xl mt-8 text-gray-800" data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000" data-aos-easing="ease-in-out">Mobile App Development:</h1>
-      <p class="text-gray-500 mt-3" data-aos="fade-up" data-aos-delay="3000" data-aos-easing="ease-in-out" data-aos-duration="1000">I specialize in creating responsive and <br>intuitive mobile apps that work seamlessly<br> across iOS & Android devices. From concept<br> to deployment, I handle every stage of the<br> development process.</p>
+      <h1 class="font-bold text-xl mt-8 text-gray-800" data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
+        data-aos-easing="ease-in-out">Mobile App Development:</h1>
+      <p class="text-gray-500 mt-3" data-aos="fade-up" data-aos-delay="3000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">I specialize in creating responsive and <br>intuitive mobile apps that work
+        seamlessly<br> across iOS & Android devices. From concept<br> to deployment, I handle every stage of the<br>
+        development process.</p>
     </div>
 
     <div class="text-center">
-      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
+      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full" data-aos="fade-up"
+        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
         analytics
       </span>
-      <h1 class="font-bold text-xl mt-8 text-gray-800" data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000" data-aos-easing="ease-in-out">Technology Stack:</h1>
-      <p class="text-gray-500 mt-3" data-aos="fade-up-left" data-aos-delay="3000" data-aos-easing="ease-in-out" data-aos-duration="1000">I'm well-versed in the industry's most popular<br> frontend technologies, including HTML5,<br> CSS3, JavaScript, and frameworks like React<br> and React Native.</p>
+      <h1 class="font-bold text-xl mt-8 text-gray-800" data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
+        data-aos-easing="ease-in-out">Technology Stack:</h1>
+      <p class="text-gray-500 mt-3" data-aos="fade-up-left" data-aos-delay="3000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">I'm well-versed in the industry's most popular<br> frontend technologies, including
+        HTML5,<br> CSS3, JavaScript, and frameworks like React<br> and React Native.</p>
     </div>
   </div>
 
 
 
 
-
-
+  <!--My projects-->
   <div>
-    <div class="px-30 text-center">
-      <h1 class="text-5xl font-bold mt-32 text-gray-800" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="1000">My Projects</h1>
-      <p class="text-xl text-gray-500 mt-5" data-aos="fade-up" data-aos-delay="1000" data-aos-easing="ease-in-out" data-aos-duration="1000">
-        Whether you have a mobile app idea that needs to come to life or a<br> website that requires a facelift, I'm here to turn your digital dreams into<br> reality.
+    <div class="px-32 text-center">
+      <h1 class="text-5xl font-bold mt-32 text-gray-800" data-aos="fade-up" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">My Projects</h1>
+      <p class="text-xl text-gray-500 mt-5" data-aos="fade-up" data-aos-delay="1000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">
+        Whether you have a mobile app idea that needs to come to life or a<br> website that requires a facelift, I'm
+        here to turn your digital dreams into<br> reality.
       </p>
     </div>
+
+    <div class="px-32 flex justify-center space-x-32 mt-32">
+      <div>
+        <img src="Agrotools.png" class="rounded-lg w-[300px] h-[200px] shadow-2xl" data-aos="fade-up-right"
+        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
+        <h1 class="font-bold text-xl text-gray-800 mt-8"  data-aos="fade-up-right" data-aos-delay="2000" data-aos-duration="1000"
+        data-aos-easing="ease-in-out">E-commerce development:</h1>
+        <p class="text-gray-500 mt-3" data-aos="fade-up-right" data-aos-delay="3000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">An eCommerce site for farmers is a<br> specialized online platform where<br> farmers can buy essential farming<br> supplies easily and affordably. It<br> provides access to a wide range of<br> agricultural products</p>
+        <a href="playlist.html" class="pushable mt-5" target="_blank" data-aos="fade-up-right" data-aos-delay="3000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">
+        <span class="front flex items-center space-x-2">
+          <span>Explore</span>
+        </span>
+      </a>
+      </div>
+      <div>
+        <img src="giftrecommender.jpg" class="rounded-lg w-[300px] h-[200px] shadow-2xl"  data-aos="fade-up"
+        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
+        <h1 class="font-bold text-xl text-gray-800 mt-8"  data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
+        data-aos-easing="ease-in-out">Giftrecommender web app:</h1>
+        <p class="text-gray-500 mt-3" data-aos="fade-up" data-aos-delay="3000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">A Gift Recommender Website is an online<br> platform that helps users find the perfect<br> gift based on preferences like occasion,<br> relationship, age, gender, and interests.</p>
+        <a href="playlist.html" class="pushable mt-5" target="_blank" data-aos="fade-up" data-aos-delay="3000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">
+        <span class="front flex items-center space-x-2">
+          <span>Explore</span>
+        </span>
+      </a>
+      </div>
+      <div>
+        <img src="playlist.jpg" class="rounded-lg w-[300px] h-[200px] shadow-2xl" data-aos="fade-up-left"
+        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
+        <h1 class="font-bold text-xl text-gray-800 mt-8" data-aos="fade-up-left" data-aos-delay="2000" data-aos-duration="1000"
+        data-aos-easing="ease-in-out">My music playlist:</h1>
+        <p class="text-gray-500 mt-3"  data-aos="fade-up-left" data-aos-delay="3000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">My music playlist is a personalized<br> collection of my favorite songs,<br> reflecting my unique taste and mood.<br> It can include a mix of genres like Hindi,<br> English, Nepali, or others. </p>
+        <a href="playlist.html" class="pushable mt-5" target="_blank" data-aos="fade-up-left" data-aos-delay="3000" data-aos-easing="ease-in-out"
+        data-aos-duration="1000">
+        <span class="front flex items-center space-x-2">
+          <span>Explore</span>
+        </span>
+      </a>
+      </div>
+    </div>
   </div>
 
+
+
+  <!--My Resume-->
+  <div class="px-44 mt-40">
+    <h1 class="font-bold text-4xl text-gray-800">My Resume</h1>
+    <p class="text-gray-500 mt-5 mb-1">Highly skilled and creative Web Developer with 2+ years of<br> experience in crafting visually stunning and functionally robust<br> websites and web applications.</p>
+    <a href="playlist.html" class="pushable mt-5" target="_blank">
+        <span class="front flex items-center space-x-2">
+          <span>View more</span>
+        </span>
+      </a>
+  </div>
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
