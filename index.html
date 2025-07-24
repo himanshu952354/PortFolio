@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Himanshu Shekhar - Portfolio</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -13,11 +13,10 @@
   <!-- For Material Symbols Rounded -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
 
-
   <style>
     html {
-  scroll-behavior: smooth;
-}
+      scroll-behavior: smooth;
+    }
 
     .pushable {
       position: relative;
@@ -65,193 +64,422 @@
     .pushable:active .front {
       transform: translateY(-1px);
     }
+
+    /* Mobile menu styles */
+    .mobile-menu {
+      display: none;
+      cursor: pointer;
+    }
+
+    .menu-icon {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #000;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100%;
+      background-color: white;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      z-index: 100;
+      transition: right 0.3s ease-in-out;
+      padding-top: 80px;
+    }
+
+    .mobile-nav.open {
+      right: 0;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .hero-section {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .hero-image {
+        margin-bottom: 30px;
+      }
+      
+      .skills-container, .projects-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .skill-item, .project-item {
+        margin-bottom: 40px;
+      }
+      
+      .email-input {
+        width: 100% !important;
+        max-width: 400px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu {
+        display: block;
+      }
+      
+      .header-content {
+        padding: 0 20px;
+      }
+      
+      .section-padding {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      
+      .hero-heading {
+        font-size: 2.5rem !important;
+      }
+      
+      .hero-text {
+        font-size: 1rem !important;
+      }
+      
+      .resume-section {
+        padding: 0 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .email-form {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .email-input {
+        margin-bottom: 15px;
+      }
+      
+      .hero-heading {
+        font-size: 2rem !important;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-gray-100">
-  <!--Header-->
-  <header class="flex justify-between items-center px-20 shadow-lg py-6 sticky backdrop-blur-lg top-0 bg-white/10 z-10">
-    <h1 class="text-2xl font-bold font-mono">Full Stack Web Developer</h1>
-    <nav class="flex space-x-6">
-      <button class="pushable">
-        <span class="front flex items-center space-x-2">
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav">
+    <span class="close-menu" id="closeMenu">&times;</span>
+    <div class="flex flex-col items-center space-y-8 mt-10">
+      <button class="pushable w-40">
+        <span class="front flex items-center justify-center space-x-2">
           <i class="fas fa-folder"></i>
           <span>Projects</span>
         </span>
       </button>
-      <a href="playlist.html" class="pushable" target="_blank">
-        <span class="front flex items-center space-x-2">
+      <a href="playlist.html" class="pushable w-40" target="_blank">
+        <span class="front flex items-center justify-center space-x-2">
           <i class="fas fa-music"></i>
           <span>Playlist</span>
         </span>
       </a>
-
-    </nav>
+    </div>
+  </div>
+  
+  <!--Header-->
+  <header class="flex justify-between items-center px-4 md:px-20 py-6 sticky backdrop-blur-lg top-0 bg-white/10 z-10 shadow-lg">
+    <div class="header-content flex justify-between items-center w-full">
+      <h1 class="text-xl md:text-2xl font-bold font-mono">Full Stack Developer</h1>
+      
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav flex space-x-6">
+        <button class="pushable">
+          <span class="front flex items-center space-x-2">
+            <i class="fas fa-folder"></i>
+            <span>Projects</span>
+          </span>
+        </button>
+        <a href="playlist.html" class="pushable" target="_blank">
+          <span class="front flex items-center space-x-2">
+            <i class="fas fa-music"></i>
+            <span>Playlist</span>
+          </span>
+        </a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+      </div>
+    </div>
   </header>
 
-
-
-
   <!--Hero section-->
-  <div class="flex mt-5 justify-between px-20">
-    <div>
-      <h1 class=" text-5xl font-bold py-10" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
-        𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚖𝚢 𝚆𝚎𝚋<br> 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚖𝚎𝚗𝚝 𝙿𝚘𝚛𝚝𝚏𝚘𝚕𝚒𝚘!</h1>
-      <p class="mt-5 text-xl text-gray-500" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000"><i>I'm
-          Himanshu Shekhar, a passionate web developer based in India.<br> Here, you'll get a glimpse of my journey in
-          the world of web<br> development, where creativity meets functionality.</i></p>
+  <div class="hero-section flex flex-col md:flex-row mt-5 justify-between px-4 md:px-20">
+    <div class="hero-content">
+      <h1 class="hero-heading text-3xl md:text-5xl font-bold py-5 md:py-10" 
+          data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+        𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚖𝚢 𝚆𝚎𝚋<br> 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚖𝚎𝚗𝚝 𝙿𝚘𝚛𝚝𝚏𝚘𝚕𝚒𝚘!
+      </h1>
+      <p class="mt-3 md:mt-5 text-base md:text-xl text-gray-500 hero-text" 
+         data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">
+        <i>I'm Himanshu Shekhar, a passionate web developer based in India.<br class="hidden md:block"> 
+        Here, you'll get a glimpse of my journey in the world of web<br class="hidden md:block"> 
+        development, where creativity meets functionality.</i>
+      </p>
 
-      <h1 class="mt-10 text-gray-700" data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
-        data-aos-easing="ease-in-out"><i>Your email</i></h1>
-      <div class="flex space-x-4 mt-1" data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
-        data-aos-easing="ease-in-out">
+      <h1 class="mt-8 md:mt-10 text-gray-700" 
+          data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
+          data-aos-easing="ease-in-out">
+        <i>Your email</i>
+      </h1>
+      <div class="email-form flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-1" 
+           data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
+           data-aos-easing="ease-in-out">
         <input type="text" placeholder="Enter your email"
-          class=" px-2 py-2 rounded-lg border-2 border-grey-700 w-[400px] h-[40px]">
+          class="email-input px-4 py-2 rounded-lg border-2 border-grey-700 w-full md:w-[300px] lg:w-[400px] h-[40px]">
         <button
-          class="rounded-lg border-2 px-2 py-2 h-[40px] border-black hover:scale-90 font-bold text-white bg-black transition-transform duration-300 ease-in-out">Require
-          Offer</button>
+          class="rounded-lg border-2 px-4 py-2 h-[40px] border-black hover:scale-90 font-bold text-white bg-black transition-transform duration-300 ease-in-out whitespace-nowrap">
+          Require Offer
+        </button>
       </div>
-      <p class="text-gray-400 mt-1" data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
-        data-aos-easing="ease-in-out">Read my <span class="underline"><a href="#">Terms and Conditions</a></span></p>
+      <p class="text-gray-400 mt-1 text-sm" 
+         data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
+         data-aos-easing="ease-in-out">
+        Read my <span class="underline"><a href="#">Terms and Conditions</a></span>
+      </p>
     </div>
-    <img src="2nd.jpeg" data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000"
-      data-aos-easing="ease-in-out" class="w-[550px] h-[550px] rounded-lg shadow-2xl">
+    <img src="2nd.jpeg" 
+         alt="Developer" 
+         data-aos="fade-left" data-aos-delay="1000" data-aos-duration="1000"
+         data-aos-easing="ease-in-out" 
+         class="hero-image w-full max-w-[550px] md:w-[550px] md:h-[550px] rounded-lg shadow-2xl mx-auto mt-8 md:mt-0">
   </div>
-
-
-
-
 
   <!-- My skills -->
-  <div class="px-32">
-    <h1 class="font-bold text-xl text-center mt-10 font-sans text-gray-800" data-aos="fade-up" data-aos-duration="1000"
-      data-aos-easing="ease-in-out">My skills</h1>
-    <h2 class="font-bold text-5xl text-center mt-3 text-gray-800" data-aos="fade-up" data-aos-delay="1000"
-      data-aos-duration="500" data-aos-easing="ease-in-out">What I do</h2>
-    <p class="text-center text-gray-500 text-xl mt-10" data-aos="fade-up" data-aos-delay="2000"
-      data-aos-easing="ease-in-out">I'm not just a developer; I'm a digital dreamweaver. Crafting
-      immersive online experiences is not just a job but my calling.<br> Discover below how I can help you.</p>
+  <div class="section-padding px-4 md:px-20 lg:px-32">
+    <h1 class="font-bold text-lg md:text-xl text-center mt-10 md:mt-20 font-sans text-gray-800" 
+        data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+      My skills
+    </h1>
+    <h2 class="font-bold text-3xl md:text-5xl text-center mt-3 text-gray-800" 
+        data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000" data-aos-easing="ease-in-out">
+      What I do
+    </h2>
+    <p class="text-center text-gray-500 text-base md:text-xl mt-5 md:mt-10" 
+       data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000"
+       data-aos-easing="ease-in-out">
+      I'm not just a developer; I'm a digital dreamweaver. Crafting immersive online experiences is not just a job but my calling.<br class="hidden md:block"> 
+      Discover below how I can help you.
+    </p>
   </div>
 
-  <div class="flex justify-center px-32 mt-32 space-x-32">
-    <div class="text-center">
-      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full" data-aos="fade-up"
-        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
+  <div class="skills-container flex flex-col md:flex-row justify-center px-4 md:px-20 lg:px-32 mt-16 md:mt-32 space-y-16 md:space-y-0 md:space-x-8 lg:space-x-16">
+    <div class="skill-item text-center" 
+         data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out">
+      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full">
         dashboard
       </span>
-      <h1 class="font-bold text-xl mt-8 text-gray-800" data-aos="fade-up-right" data-aos-delay="2000"
-        data-aos-duration="1000" data-aos-easing="ease-in-out">Frontend Web Development:</h1>
-      <p class="text-gray-500 mt-3" data-aos="fade-up-right" data-aos-delay="3000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">Creating beautiful and functional web<br> experiences is my forte. Using the latest<br>
-        technologies and best
-        practices, I design and<br> build websites that captivate and engage<br> users.</p>
-    </div>
-
-    <div class="text-center">
-      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full" data-aos="fade-up"
-        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
-        fingerprint
-      </span>
-      <h1 class="font-bold text-xl mt-8 text-gray-800" data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
-        data-aos-easing="ease-in-out">Mobile App Development:</h1>
-      <p class="text-gray-500 mt-3" data-aos="fade-up" data-aos-delay="3000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">I specialize in creating responsive and <br>intuitive mobile apps that work
-        seamlessly<br> across iOS & Android devices. From concept<br> to deployment, I handle every stage of the<br>
-        development process.</p>
-    </div>
-
-    <div class="text-center">
-      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full" data-aos="fade-up"
-        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
-        analytics
-      </span>
-      <h1 class="font-bold text-xl mt-8 text-gray-800" data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
-        data-aos-easing="ease-in-out">Technology Stack:</h1>
-      <p class="text-gray-500 mt-3" data-aos="fade-up-left" data-aos-delay="3000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">I'm well-versed in the industry's most popular<br> frontend technologies, including
-        HTML5,<br> CSS3, JavaScript, and frameworks like React<br> and React Native.</p>
-    </div>
-  </div>
-
-
-
-
-  <!--My projects-->
-  <div>
-    <div class="px-32 text-center">
-      <h1 class="text-5xl font-bold mt-32 text-gray-800" data-aos="fade-up" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">My Projects</h1>
-      <p class="text-xl text-gray-500 mt-5" data-aos="fade-up" data-aos-delay="1000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">
-        Whether you have a mobile app idea that needs to come to life or a<br> website that requires a facelift, I'm
-        here to turn your digital dreams into<br> reality.
+      <h1 class="font-bold text-lg md:text-xl mt-6 md:mt-8 text-gray-800">Frontend Web Development:</h1>
+      <p class="text-gray-500 mt-2 md:mt-3 text-sm md:text-base">
+        Creating beautiful and functional web experiences is my forte. Using the latest
+        technologies and best practices, I design and build websites that captivate and engage users.
       </p>
     </div>
 
-    <div class="px-32 flex justify-center space-x-32 mt-32">
-      <div>
-        <img src="Agrotools.png" class="rounded-lg w-[300px] h-[200px] shadow-2xl" data-aos="fade-up-right"
-        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
-        <h1 class="font-bold text-xl text-gray-800 mt-8"  data-aos="fade-up-right" data-aos-delay="2000" data-aos-duration="1000"
-        data-aos-easing="ease-in-out">E-commerce development:</h1>
-        <p class="text-gray-500 mt-3" data-aos="fade-up-right" data-aos-delay="3000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">An eCommerce site for farmers is a<br> specialized online platform where<br> farmers can buy essential farming<br> supplies easily and affordably. It<br> provides access to a wide range of<br> agricultural products</p>
-        <a href="playlist.html" class="pushable mt-5" target="_blank" data-aos="fade-up-right" data-aos-delay="3000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">
-        <span class="front flex items-center space-x-2">
-          <span>Explore</span>
-        </span>
-      </a>
+    <div class="skill-item text-center" 
+         data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000"
+         data-aos-easing="ease-in-out">
+      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full">
+        fingerprint
+      </span>
+      <h1 class="font-bold text-lg md:text-xl mt-6 md:mt-8 text-gray-800">Mobile App Development:</h1>
+      <p class="text-gray-500 mt-2 md:mt-3 text-sm md:text-base">
+        I specialize in creating responsive and intuitive mobile apps that work
+        seamlessly across iOS & Android devices. From concept to deployment, I handle every stage of the
+        development process.
+      </p>
+    </div>
+
+    <div class="skill-item text-center" 
+         data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000"
+         data-aos-easing="ease-in-out">
+      <span class="material-symbols-rounded text-white text-xl bg-black px-4 py-3 rounded-full">
+        analytics
+      </span>
+      <h1 class="font-bold text-lg md:text-xl mt-6 md:mt-8 text-gray-800">Technology Stack:</h1>
+      <p class="text-gray-500 mt-2 md:mt-3 text-sm md:text-base">
+        I'm well-versed in the industry's most popular frontend technologies, including
+        HTML5, CSS3, JavaScript, and frameworks like React and React Native.
+      </p>
+    </div>
+  </div>
+
+  <!--My projects-->
+  <div class="section-padding px-4 md:px-20 lg:px-32">
+    <div class="text-center">
+      <h1 class="text-3xl md:text-5xl font-bold mt-16 md:mt-32 text-gray-800" 
+          data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="1000">
+        My Projects
+      </h1>
+      <p class="text-base md:text-xl text-gray-500 mt-3 md:mt-5" 
+         data-aos="fade-up" data-aos-delay="500" data-aos-easing="ease-in-out"
+         data-aos-duration="1000">
+        Whether you have a mobile app idea that needs to come to life or a<br class="hidden md:block"> 
+        website that requires a facelift, I'm here to turn your digital dreams into<br class="hidden md:block"> 
+        reality.
+      </p>
+    </div>
+
+    <div class="projects-container flex flex-col md:flex-row justify-center space-y-16 md:space-y-0 md:space-x-8 lg:space-x-16 mt-16 md:mt-32">
+      <div class="project-item" 
+           data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-easing="ease-in-out">
+        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
+             alt="E-commerce project" 
+             class="rounded-lg w-full max-w-[300px] h-[200px] shadow-2xl mx-auto object-cover">
+        <h1 class="font-bold text-lg md:text-xl text-gray-800 mt-6 md:mt-8">E-commerce development:</h1>
+        <p class="text-gray-500 mt-2 md:mt-3 text-sm md:text-base">
+          An eCommerce site for farmers is a specialized online platform where farmers
+          can buy essential farming supplies easily and affordably. It provides access to a wide range of
+          agricultural products.
+        </p>
+        <a href="https://github.com/himanshu952354/AgroTools/tree/master" class="pushable mt-3 md:mt-5 block w-fit mx-auto" target="_blank">
+          <span class="front flex items-center space-x-2">
+            <span>Explore</span>
+          </span>
+        </a>
       </div>
-      <div>
-        <img src="giftrecommender.jpg" class="rounded-lg w-[300px] h-[200px] shadow-2xl"  data-aos="fade-up"
-        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
-        <h1 class="font-bold text-xl text-gray-800 mt-8"  data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000"
-        data-aos-easing="ease-in-out">Giftrecommender web app:</h1>
-        <p class="text-gray-500 mt-3" data-aos="fade-up" data-aos-delay="3000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">A Gift Recommender Website is an online<br> platform that helps users find the perfect<br> gift based on preferences like occasion,<br> relationship, age, gender, and interests.</p>
-        <a href="playlist.html" class="pushable mt-5" target="_blank" data-aos="fade-up" data-aos-delay="3000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">
-        <span class="front flex items-center space-x-2">
-          <span>Explore</span>
-        </span>
-      </a>
+
+      <div class="project-item" 
+           data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000"
+           data-aos-easing="ease-in-out">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
+             alt="Gift recommender" 
+             class="rounded-lg w-full max-w-[300px] h-[200px] shadow-2xl mx-auto object-cover">
+        <h1 class="font-bold text-lg md:text-xl text-gray-800 mt-6 md:mt-8">Giftrecommender web app:</h1>
+        <p class="text-gray-500 mt-2 md:mt-3 text-sm md:text-base">
+          A Gift Recommender Website is an online platform that helps users find the
+          perfect gift based on preferences like occasion, relationship, age, gender, and interests.
+        </p>
+        <a href="https://giftit.onrender.com/" class="pushable mt-3 md:mt-5 block w-fit mx-auto" target="_blank">
+          <span class="front flex items-center space-x-2">
+            <span>Explore</span>
+          </span>
+        </a>
       </div>
-      <div>
-        <img src="playlist.jpg" class="rounded-lg w-[300px] h-[200px] shadow-2xl" data-aos="fade-up-left"
-        data-aos-duration="1000" data-aos-delay="1000" data-aos-easing="ease-in-out">
-        <h1 class="font-bold text-xl text-gray-800 mt-8" data-aos="fade-up-left" data-aos-delay="2000" data-aos-duration="1000"
-        data-aos-easing="ease-in-out">My music playlist:</h1>
-        <p class="text-gray-500 mt-3"  data-aos="fade-up-left" data-aos-delay="3000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">My music playlist is a personalized<br> collection of my favorite songs,<br> reflecting my unique taste and mood.<br> It can include a mix of genres like Hindi,<br> English, Nepali, or others. </p>
-        <a href="playlist.html" class="pushable mt-5" target="_blank" data-aos="fade-up-left" data-aos-delay="3000" data-aos-easing="ease-in-out"
-        data-aos-duration="1000">
-        <span class="front flex items-center space-x-2">
-          <span>Explore</span>
-        </span>
-      </a>
+
+      <div class="project-item" 
+           data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000"
+           data-aos-easing="ease-in-out">
+        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" 
+             alt="Music playlist" 
+             class="rounded-lg w-full max-w-[300px] h-[200px] shadow-2xl mx-auto object-cover">
+        <h1 class="font-bold text-lg md:text-xl text-gray-800 mt-6 md:mt-8">My music playlist:</h1>
+        <p class="text-gray-500 mt-2 md:mt-3 text-sm md:text-base">
+          My music playlist is a personalized collection of my favorite songs,
+          reflecting my unique taste and mood. It can include a mix of genres like Hindi, English, Nepali, or others.
+        </p>
+        <a href="playlist.html" class="pushable mt-3 md:mt-5 block w-fit mx-auto" target="_blank">
+          <span class="front flex items-center space-x-2">
+            <span>Explore</span>
+          </span>
+        </a>
       </div>
     </div>
   </div>
 
-
-
   <!--My Resume-->
-  <div class="px-44 mt-40">
-    <h1 class="font-bold text-4xl text-gray-800">My Resume</h1>
-    <p class="text-gray-500 mt-5 mb-1">Highly skilled and creative Web Developer with 2+ years of<br> experience in crafting visually stunning and functionally robust<br> websites and web applications.</p>
-    <a href="playlist.html" class="pushable mt-5" target="_blank">
-        <span class="front flex items-center space-x-2">
-          <span>View more</span>
-        </span>
-      </a>
+  <div class="resume-section px-4 md:px-20 lg:px-32 mt-16 md:mt-40 mb-16" 
+       data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-out">
+    <h1 class="font-bold text-2xl md:text-4xl text-gray-800">My Resume</h1>
+    <p class="text-gray-500 mt-3 md:mt-5 mb-3 text-sm md:text-base">
+      Highly skilled and creative Web Developer with 2+ years of experience in
+      crafting visually stunning and functionally robust websites and web applications.
+    </p>
+    <a href="#" class="pushable mt-3 md:mt-5 inline-block" target="_blank">
+      <span class="front flex items-center space-x-2">
+        <span>View Resume</span>
+      </span>
+    </a>
   </div>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-10 px-4 md:px-20">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-6 md:mb-0">
+        <h2 class="text-xl font-bold">Himanshu Shekhar</h2>
+        <p class="text-gray-400 mt-2">Full Stack Web Developer</p>
+      </div>
+      
+      <div class="flex space-x-6">
+        <a href="https://github.com/himanshu952354" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fab fa-linkedin-in fa-lg"></i>
+        </a>
+        <a href="https://www.instagram.com/who_is_d_j?igsh=MTJqY2c1YjJiOG84NQ==" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+      </div>
+    </div>
+    
+    <div class="mt-8 text-center text-gray-400 text-sm">
+      &copy; 2025 Himanshu Shekhar. All rights reserved.
+    </div>
+  </footer>
+
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init();
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      duration: 1000,
+      offset: 100
+    });
+    
+    // Mobile menu functionality
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const closeMenu = document.getElementById('closeMenu');
+    
+    mobileMenu.addEventListener('click', () => {
+      mobileNav.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    closeMenu.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (mobileNav.classList.contains('open') && 
+          !mobileNav.contains(e.target) && 
+          !mobileMenu.contains(e.target)) {
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = 'auto';
+      }
+    });
   </script>
-
 </body>
 
 </html>
